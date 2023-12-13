@@ -9,7 +9,7 @@ Framerate and colors are poorly represented on these videos. Click to expand:
 <details >
   <summary>Comets</summary>
 <img src="/vid/dg_planets_1.gif" width="300"/>
-<img src="/vid/dg_planets_2.gif" width="300"/>
+<img src="/vid/dg_planets_2.gif" width="300"/></br>
 
 see `code/dg_planets.py`. Variable modes are available with:
 - Planets which don't move
@@ -20,20 +20,20 @@ see `code/dg_planets.py`. Variable modes are available with:
 
 <details >
   <summary>Gaussian Blur</summary>
-<img src="/vid/dg_blur.gif" width="300"/>
+<img src="/vid/dg_blur.gif" width="300"/></br>
 see `code/dg_gaussian_blur.py`
 </details>
 
 <details >
   <summary>Waves</summary>
-<img src="/vid/dg_waves.gif" width="300"/>
+<img src="/vid/dg_waves.gif" width="300"/></br>
 see `code/dg_waves.py`
 </details>
 
 
 <details >
   <summary>Ising Model</summary>
-<img src="/vid/dg_ising_model.gif" width="300"/>
+<img src="/vid/dg_ising_model.gif" width="300"/></br>
 see `code/dg_ising_model.py`
 </details>
 
