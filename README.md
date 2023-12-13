@@ -41,7 +41,7 @@ see `code/dg_planets.py`. Variable modes are available with:
 - [64 x 64x LED Matrix Adafruit](https://www.adafruit.com/product/4732)
 - [Adafruit RGB Matrix HAT + RTC for Raspberry Pi](https://www.adafruit.com/product/2345)
 - Raspberry Pi 4
-- Laser cut enclosure
+- Laser cut enclosure (see [/enclosure](/enclosure/))
 
 
 ## How to build
