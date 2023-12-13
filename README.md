@@ -1,6 +1,6 @@
 # LED Art Matrix
 
-Collection of Python codes (using [rpi-rgb-led-matrix](https://learn.adafruit.com/adafruit-rgb-matrix-plus-real-time-clock-hat-for-raspberry-pi/driving-matrices#step-6-log-into-your-pi-to-install-and-run-software-1745233)), which display animations an an 64 x 64 LED matrix. 
+Collection of Python codes (using [rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix), which display animations an an 64 x 64 LED matrix. 
 
 
 
@@ -21,7 +21,7 @@ see `code/dg_planets.py`. Variable modes are available with:
 <details >
   <summary>Gaussian Blur</summary>
 <img src="/vid/dg_blur.gif" width="300"/></br>
-see `code/dg_gaussian_blur.py`
+see `code/dg_gaussian_blur.py` 
 </details>
 
 <details >
