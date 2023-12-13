@@ -1,14 +1,20 @@
 # LED Art Matrix
 
-
-Purpose
+Collection of Python codes which display animations an an 64 x 64 LED matrix. 
 
 
 
 ## Showcase
+Click to expand:
 <details >
   <summary>Comets</summary>
 <img src="/vid/test_vid.gif" width="300"/>
+
+see `code/dg_planets.py`. Variable modes are available with:
+- Planets which don't move
+- different interactions between particles (purely attractive, attractive and repulsive if close, attractive but bouncing off each other)
+- different boundary conditions
+
 </details>
 
 ## Materials
@@ -21,6 +27,13 @@ Purpose
 ## How to build
 - setup a Raspberry pi (i use header-less mode as described [here](https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.html))
 - install rpi-rgb-led-matrix as described [here](https://learn.adafruit.com/adafruit-rgb-matrix-plus-real-time-clock-hat-for-raspberry-pi/driving-matrices#step-6-log-into-your-pi-to-install-and-run-software-1745233)
+- either run `code\dg_master.py` (takes a random other script and runs it for a set amount of time) or 
+```sudo python CODE_NAME --led-rows=64 --led-cols=64 --led-gpio-mapping=adafruit-hat-pwm --led-pwm-lsb-nanoseconds 50 --led-slowdown-gpio=4 --led-pwm-bits=11 ```
+
+Intended use is to add `code/dg_master.py` to the startup routine of the Raspberry Pi, such that the LED matrix automatically turn on when the system is powered. 
+
+
+
 
 
 
