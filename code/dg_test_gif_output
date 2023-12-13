@@ -1,0 +1,57 @@
+from PIL import Image, ImageDraw
+import numpy as np
+
+def create_gif(frames, output_filename, target_resolution=(800, 800), duration=100, loop=0):
+    # Create a new list to store modified frames
+    modified_frames = []
+
+    for frame in frames:
+        # Upscale the frame to the target resolution
+        upscaled_frame = Image.fromarray(frame).resize(target_resolution, resample=Image.NEAREST)
+
+        # Create a black grid on the upscaled frame
+        if False:
+            draw = ImageDraw.Draw(upscaled_frame)
+            grid_color = (0, 0, 0)  # Black
+            grid_size = 2  # Adjust the grid size as needed
+
+            # Draw horizontal grid lines
+            for y in range(0, target_resolution[1], grid_size):
+                draw.line([(0, y), (target_resolution[0], y)], fill=grid_color, width=1)
+
+            # Draw vertical grid lines
+            for x in range(0, target_resolution[0], grid_size):
+                draw.line([(x, 0), (x, target_resolution[1])], fill=grid_color, width=1)
+
+        # Append the modified frame to the list
+        modified_frames.append(upscaled_frame)
+
+    # Save the modified frames as a GIF
+    modified_frames[0].save(
+        output_filename,
+        save_all=True,
+        append_images=modified_frames[1:],
+        duration=duration,
+        loop=loop
+    )
+
+# Example usage
+output_filename = 'output_with_grid2.gif'
+duration = 100  # milliseconds
+loop = 0  # 0 for infinite looping
+
+# Initialize an empty list to store frames
+frames = []
+
+# Replace this loop with your actual code that generates RGB matrices
+for _ in range(10):  # Add 10 frames as an example
+    # Replace this with your actual code that generates RGB matrices
+    rgb_matrix = np.random.randint(0, 256, (100, 100, 3), dtype=np.uint8)
+
+    # Append the RGB matrix to the frames list
+    frames.append(rgb_matrix)
+
+    # You can add more processing or modifications to the RGB matrix here
+
+# Create the GIF with an upscaled resolution and a black grid
+create_gif(frames, output_filename, target_resolution=(200, 200), duration=duration, loop=loop)
