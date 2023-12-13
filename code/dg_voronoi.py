@@ -24,7 +24,7 @@ options.rows = matrix_height
 options.cols = matrix_width
 options.chain_length = 1
 options.parallel = 1
-options.pwm_bits = 11 # default 11, minimum 1, lower should be less flickering
+options.pwm_bits = 6 # default 11, minimum 1, lower should be less flickering
 options.pwm_lsb_nanoseconds = 50
 # options.limit_refresh_rate_hz = 60
 options.gpio_slowdown = 4
@@ -106,7 +106,7 @@ try:
         
 
         # move points
-        if True:
+        if False:
             step_size = 0.1
             step_chance = 0.1
             for i,_ in enumerate(control_points):

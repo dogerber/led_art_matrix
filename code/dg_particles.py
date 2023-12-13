@@ -1,54 +1,13 @@
 #!/usr/bin/env python
-do_display_on_matrix = False # display on LED matrix or output as gif in current folder
 
 from samplebase import SampleBase
 
 import numpy as np
-
 import random
-
 import matplotlib.pyplot as plt
-from matplotlib import cm
-
 from matplotlib.colors import Normalize
 from matplotlib.cm import ScalarMappable
 
-
-
-if do_display_on_matrix:
-    def create_gif(frames, output_filename, target_resolution=(800, 800), duration=100, loop=0):
-        # Create a new list to store modified frames
-        modified_frames = []
-
-        for frame in frames:
-            # Upscale the frame to the target resolution
-            upscaled_frame = Image.fromarray(frame).resize(target_resolution, resample=Image.NEAREST)
-
-            # Create a black grid on the upscaled frame
-            if False:
-                draw = ImageDraw.Draw(upscaled_frame)
-                grid_color = (0, 0, 0)  # Black
-                grid_size = 2  # Adjust the grid size as needed
-
-                # Draw horizontal grid lines
-                for y in range(0, target_resolution[1], grid_size):
-                    draw.line([(0, y), (target_resolution[0], y)], fill=grid_color, width=1)
-
-                # Draw vertical grid lines
-                for x in range(0, target_resolution[0], grid_size):
-                    draw.line([(x, 0), (x, target_resolution[1])], fill=grid_color, width=1)
-
-            # Append the modified frame to the list
-            modified_frames.append(upscaled_frame)
-
-        # Save the modified frames as a GIF
-        modified_frames[0].save(
-            output_filename,
-            save_all=True,
-            append_images=modified_frames[1:],
-            duration=duration,
-            loop=loop
-        )
 
 
 class Particle:
@@ -69,7 +28,20 @@ class Particle:
                 f"Not Movable: {self.not_movable}\n")
 
     def generate_random_color(self):
-        return np.random.uniform(0,255,size=(3,))
+        if False: # random color
+            return np.random.uniform(0,255,size=(3,))
+        else:
+            # Replace 'viridis' with the name of the desired colormap
+            colormap_name = 'inferno'
+
+            # Create a colormap
+            cmap = plt.get_cmap(colormap_name)
+
+            # Get a random color from the colormap
+            random_color = cmap(np.random.uniform(0.1,1))
+            random_color = (np.array(random_color[0:3]) * 255).astype(int)
+            return random_color
+
 
     def move(self, dt):
         if self.not_movable:
@@ -122,7 +94,6 @@ class Particle:
 
 
 # Functions
-
 def create_random_particles(A):
     particles = []
     for _ in range(A):
@@ -173,8 +144,6 @@ def particle_step(particles, steps):
             for other_particle in particles:
                 if particle != other_particle:
                     particle.interact(other_particle)
-
-
 
 
 def rgb_to_hsl(rgb):
@@ -249,7 +218,7 @@ class SimpleSquare(SampleBase):
         offset_canvas = self.matrix.CreateFrameCanvas()
 
         # Arbitrary length A and number of steps
-        A = 5 # number of particles
+        A = 4 # number of particles
         steps = 10000 # number of time steps
         max_trace = 30 # trace that is plotted
 
@@ -258,28 +227,20 @@ class SimpleSquare(SampleBase):
 
 
         # add a heavy particle in the middle
-        if False:
-            x = 31 
-            y = 31
-            speed_x = 0.0
-            speed_y = 0.0
-            particle = Particle(x, y, speed_x, speed_y, {'mass': 100})  # Random mass for each particle
-            particle.color = [255,255,255]
+        if True:
             particles_array.append(heavy_particle(31,31))
             particles_array.append(heavy_particle(32,32))
             particles_array.append(heavy_particle(32,31))
             particles_array.append(heavy_particle(31,32))
 
-
-        particles_array += draw_planet(31,43,2.5)
-        particles_array += draw_planet(10,5,1)
-        particles_array += draw_planet(50,23,1)
+        if False: 
+            particles_array += draw_planet(31,43,2)
+            particles_array += draw_planet(10,5,1)
+            particles_array += draw_planet(50,23,1)
 
         # Output particles to start with
         if False:
             print(*particles_array)
-
-        frames = []
 
         # let system evolve
         for _ in range(steps):
@@ -320,11 +281,8 @@ class SimpleSquare(SampleBase):
                                         rgb_i[0],rgb_i[1],rgb_i[2])
                 
             # display 
-            if do_display_on_matrix:
-                offset_canvas = self.matrix.SwapOnVSync(offset_canvas)
-                self.usleep(10 * 1000)
-            else:
-                frames.append(rgb_matrix)
+            offset_canvas = self.matrix.SwapOnVSync(offset_canvas)
+            self.usleep(10 * 1000)
 
 
 

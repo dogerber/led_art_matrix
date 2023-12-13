@@ -125,7 +125,7 @@ class SimpleSquare(SampleBase):
 
                     # ramp temperature up
                     if True:
-                        ising_model.temperature += 0.005
+                        ising_model.temperature += 0.02
 
                     if True: #blur
                         matrix_to_display = gaussian_blur(ising_model.spins.copy(),sigma=2, kernel_size=3)

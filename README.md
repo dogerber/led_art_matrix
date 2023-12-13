@@ -50,7 +50,7 @@ see `code/dg_planets.py`. Variable modes are available with:
 - either run `code\dg_master.py` (takes a random other script and runs it for a set amount of time) or 
 ```sudo python CODE_NAME --led-rows=64 --led-cols=64 --led-gpio-mapping=adafruit-hat-pwm --led-pwm-lsb-nanoseconds 50 --led-slowdown-gpio=4 --led-pwm-bits=11 ```
 
-Intended use is to add `code/dg_master.py` to the startup routine of the Raspberry Pi, such that the LED matrix automatically turn on when the system is powered. 
+Intended use is to add `code/dg_master.py` to the startup routine of the Raspberry Pi, such that the LED matrix automatically turn on when the system is powered. I used `crontab` as for example described [here](https://www.circuitbasics.com/starting-programs-automatically-using-cron-on-a-raspberry-pi/)
 
 
 

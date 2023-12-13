@@ -3,7 +3,7 @@ import time
 import random
 
 # Specify the maximum allowed running time in seconds
-max_run_time = 5  # [seconds] 5 minutes
+max_run_time = 5*60  # [seconds] 5 minutes
 
 # Specify the script you want to run and its arguments
 script_paths = [
