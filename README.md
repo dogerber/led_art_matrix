@@ -6,9 +6,10 @@ Purpose
 
 
 ## Showcase
-
-<img src="/vid/test_vid.gif" width="250" height="250"/>
-
+<details >
+  <summary>Comets</summary>
+<img src="/vid/test_vid.gif" width="300"/>
+</details>
 
 ## Materials
 - [64 x 64x LED Matrix Adafruit](https://www.adafruit.com/product/4732)
