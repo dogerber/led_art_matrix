@@ -1,19 +1,39 @@
 # LED Art Matrix
 
-Collection of Python codes which display animations an an 64 x 64 LED matrix. 
+Collection of Python codes (using [rpi-rgb-led-matrix](https://learn.adafruit.com/adafruit-rgb-matrix-plus-real-time-clock-hat-for-raspberry-pi/driving-matrices#step-6-log-into-your-pi-to-install-and-run-software-1745233)), which display animations an an 64 x 64 LED matrix. 
 
 
 
 ## Showcase
-Click to expand:
+Framerate and colors are poorly represented on these videos. Click to expand:
 <details >
   <summary>Comets</summary>
-<img src="/vid/test_vid.gif" width="300"/>
+<img src="/vid/dg_planets_1.gif" width="300"/>
+<img src="/vid/dg_planets_2.gif" width="300"/>
 
 see `code/dg_planets.py`. Variable modes are available with:
 - Planets which don't move
 - different interactions between particles (purely attractive, attractive and repulsive if close, attractive but bouncing off each other)
 - different boundary conditions
+
+</details>
+
+<details >
+  <summary>Gaussian Blur</summary>
+<img src="/vid/dg_blur.gif" width="300"/>
+
+</details>
+
+<details >
+  <summary>Waves</summary>
+<img src="/vid/dg_waves.gif" width="300"/>
+
+</details>
+
+
+<details >
+  <summary>Ising Model</summary>
+<img src="/vid/dg_ising_model.gif" width="300"/>
 
 </details>
 
