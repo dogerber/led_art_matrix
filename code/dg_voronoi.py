@@ -106,8 +106,8 @@ try:
         
 
         # move points
-        if False:
-            step_size = 0.1
+        if True:
+            step_size = 1
             step_chance = 0.1
             for i,_ in enumerate(control_points):
                 if np.random.rand(1)<step_chance:

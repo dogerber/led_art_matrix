@@ -1,17 +1,25 @@
 import subprocess
 import time
 import random
+import os
 
 # Specify the maximum allowed running time in seconds
 max_run_time = 5*60  # [seconds] 5 minutes
 
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+
 # Specify the script you want to run and its arguments
-script_paths = [
+script_filenames = [
     "dg_ising_model.py",
     "dg_particles.py",
+    "dg_waves",
     "dg_voronoi.py",
     # Add more script paths as needed
 ]
+script_paths = [os.path.join(script_dir, filename) for filename in script_filenames]
+
 
 while True: 
     # Randomly select a script from the list
